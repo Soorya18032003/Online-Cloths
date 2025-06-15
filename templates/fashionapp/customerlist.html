@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <table border="2">
+        <h1><captions>Customers</captions></h1>
+        <tr>
+            <th>Name</th>
+            <th>EmailId</th>
+            <th>Password</th>
+            <th>Address</th>
+            <th>ContactNo</th>
+            <th colspan="2">action</th>
+        </tr>
+        {% for c in customers%}
+        <tr>
+            <td>{{c.name}}</td>
+            <td>{{c.emailId}}</td>
+            <td>{{c.password}}</td>
+            <td>{{c.address}}</td>
+            <td>{{c.contactNo}}</td>
+            <td><a href='edit/{{c.emailId}}'>edit</td>
+            <td><a href='delete/{{c.emailId}}'>delete</td>
+        </tr>
+        {% endfor%}
+    </table>
+</center>
+</body>
+</html>

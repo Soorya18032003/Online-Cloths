@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FashionPro About</title>
+  {% load static %}
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,500|Roboto:400,700" rel="stylesheet">
+  <style>
+    :root {
+      --white: #fff;
+      --gray: #a5a5a5;
+      --black: #322c2c;
+      --text: #8e8e8e;
+      --md: 768px;
+      --transition-speed: 0.3s;
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: all var(--transition-speed) ease-in-out;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      background: var(--white);
+      text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'EB Garamond', serif;
+      color: var(--black);
+      line-height: 1.1;
+    }
+
+    h2,
+    h3 {
+      font-weight: 400;
+    }
+
+    h1 {
+      font-size: 2.325rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .header {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      margin: 0 0 2rem;
+    }
+
+    p {
+      margin: 0 0 1.5rem;
+      margin-top: 20px;
+    }
+
+    p:nth-child(4) {
+      margin: 0;
+    }
+
+    p.copyright {
+      margin: 1.5rem 0;
+    }
+
+    a {
+      color: var(--gray);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--black);
+    }
+
+    blockquote {
+      font-style: italic;
+      text-align: center;
+      width: 40rem;
+      height: auto;
+      max-width: 100%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      animation: fadeIn var(--transition-speed) ease-in-out;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 0 1.5rem 0 0;
+    }
+
+    .intro {
+      margin: 1rem 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    nav {
+      position: relative;
+      padding: 1.25rem 0;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    nav ul li {
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.125rem;
+      text-transform: uppercase;
+      margin-right: 1.5rem;
+    }
+
+    nav ul li:last-child {
+      margin-right: 0;
+    }
+
+    #logo {
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.125rem;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .container {
+      margin: auto;
+      padding: 0 1rem;
+      max-width: 75rem;
+      width: 100%;
+    }
+
+    main {
+      padding: 2rem 0;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .grid>.column-4 {
+      width: 33.3333%;
+    }
+
+    .grid>.column-8 {
+      width: 66.6667%;
+    }
+
+    .grid>[class*="column-"] {
+      padding: 1rem;
+    }
+
+    .section-heading {
+      transform: rotate(0) translateX(0);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      margin: 20px 0;
+      opacity: 0;
+      animation: fadeIn var(--transition-speed) ease-in-out forwards;
+    }
+
+    footer {
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (min-width: var(--md)) {
+      body {
+        font-size: 1.125rem;
+      }
+
+      nav {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+      }
+
+      nav ul {
+        justify-content: flex-end;
+      }
+
+      h1 {
+        font-size: 3.25rem;
+      }
+
+      h2 {
+        font-size: 2.75rem;
+      }
+
+      h3 {
+        font-size: 2.25rem;
+        margin-top: 20%;
+      }
+
+      img {
+        height: auto;
+      }
+
+      .section-heading {
+        position: absolute;
+        transform-origin: top left;
+        transform: rotate(-90deg) translateX(-100%);
+      }
+
+      .intro {
+        padding: 1rem;
+      }
+
+      blockquote {
+        width: 30rem;
+        height: 40rem;
+      }
+    }
+
+    .column-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .column-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .column-right>* {
+      margin-left: 20px;
+    }
+
+    .column-xs-12.column-md-4,
+    .column-xs-12.column-md-5 {
+      display: flex;
+      align-items: center;
+    }
+
+    .column-xs-12.column-md-4 img,
+    .column-xs-12.column-md-5 img {
+      margin-left: 20px;
+    }
+
+    .column-xs-12.column-md-7 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .intro {
+      margin-left: 40px;
+      margin-top: 0px;
+    }
+
+    blockquote {
+      margin-left: 20px;
+    }
+
+    .footer {
+      text-align: right;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f4f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .testimonials-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.5em;
+      color: #5a3e36;
+      margin-bottom: 50px;
+    }
+
+    .testimonials {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .testimonial {
+      background-color: #fff;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex: 1 1 calc(50% - 20px);
+      box-sizing: border-box;
+    }
+
+    .testimonial img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      float: left;
+      margin-right: 15px;
+    }
+
+    .testimonial p {
+      margin: 0;
+      color: #333;
+    }
+
+    .testimonial .author {
+      margin-top: 10px;
+      font-style: italic;
+      color: #777;
+    }
+
+    .images-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 50px;
+    }
+
+    .images-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  {% include 'fashionapp/headernew.html'%}
+  <!-- <section class="header" style="background: transparent;">
+    <a href=""><img src="{% static 'img/fashionpro-transparent-logo.png' %}" alt="My image" style="height: 60px;" /></a>
+    <div>
+      <ul class="navbar">
+        <li><a href="{% url 'index' %}"><i class="fa-solid fa-house"></i>Home</a></li>
+        <li><a class="active" href="{% url 'about' %}"><i class="fa-regular fa-address-card"></i>About</a></li>
+        <li><a href="/contact/"><i class="fa-solid fa-phone"></i>Contact</a></li>
+        <li><a href="{% url 'clothelist' %}"><i class="fa-solid fa-store"></i>Store</a></li>
+        <li><a href="{% url 'Login' %}"><i class="fa-solid fa-arrow-right-to-bracket"></i>Log.in</a></li>
+        <li><a href="{% url 'cartList' %}"><i class="fa-solid fa-bag-shopping">Cart</i></a></li>
+      </ul>
+    </div>
+  </section> -->
+
+  <section class="testimonials-section">
+    <h2>Once You Try It</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <img src="https://media.istockphoto.com/id/669887798/photo/executive-with-arms-crossed-against-rolled-fabric.jpg?s=2048x2048&w=is&k=20&c=JhPbRGAz1uud7XjVLhyCA-ftJMzbjaFIbtvVBthdVXo=" alt="Dave Bryson">
+        <p>Inexpensive, healthy and great-tasting meals, without even having to order manually! It feels truly magical.
+        </p>
+        <p class="author">— Dave Bryson</p>
+      </div>
+      <div class="testimonial">
+        <img src="https://media.istockphoto.com/id/1028742330/photo/confident-woman-administrator-of-tissue-store.jpg?s=2048x2048&w=is&k=20&c=JGIl4wZWK6s0HVYlm-46BIbgYFhQ3QNJA9Qic-k8OzA=" alt="Ben Hadley">
+        <p>The AI algorithm is crazy good, it chooses the right meals for me every time. It's amazing not to worry about
+          food anymore!</p>
+        <p class="author">— Ben Hadley</p>
+      </div>
+      <div class="testimonial">
+        <img src="https://media.istockphoto.com/id/638777480/photo/man-using-tablet-selects-fabric-from-storage-shelves.jpg?s=2048x2048&w=is&k=20&c=RGa6dWL1NtZfKq1L3MEcQSvE7ZydEJAxVaPmDoGz2ZM=" alt="Steve Miller">
+        <p>Omnifood is a life saver! I just started a company, so there's no time for cooking. I couldn't live without
+          my daily meals now!</p>
+        <p class="author">— Steve Miller</p>
+      </div>
+      <div class="testimonial">
+        <img src="https://media.istockphoto.com/id/1193485440/photo/woman-sewer-standing-near-mannequin-with-new-dress-at-sewing-workshop.jpg?s=2048x2048&w=is&k=20&c=fXFt5xyHTVTUul1PDb08E8cRI_fRadV4FhBEBjv6tqg=" alt="Hannah Smith">
+        <p>I got Omnifood for the whole family, and it frees up so much time! Plus, everything is organic and vegan and
+          without plastic.</p>
+        <p class="author">— Hannah Smith</p>
+      </div>
+    </div>
+    <div class="images-grid">
+      <img src="https://media.istockphoto.com/id/520137102/photo/tailors-office.jpg?s=2048x2048&w=is&k=20&c=14LqhNx1GuxvtavnDfKaQq_VDriduEYzuRSqCLos-uU=" alt="Food 1">
+      <img src="https://media.istockphoto.com/id/1318390180/photo/tailor-or-dressmakers-studio.jpg?s=2048x2048&w=is&k=20&c=XAdIOBI3fXss0OU4HFZ_He2V3sJj-KcBJHQSzJEfKr4=" alt="Food 2">
+      <img src="https://media.istockphoto.com/id/1303041583/photo/cozy-apartment-of-a-business-woman.jpg?s=2048x2048&w=is&k=20&c=mW8KSnJ5AIB_HqU7RqPWTzz1kn3CacCOyy1e7s3UH4E=" alt="Food 3">
+      <img src="https://media.istockphoto.com/id/959516832/photo/brunette-girl-at-pink-skirt-and-white-blouse.jpg?s=2048x2048&w=is&k=20&c=KKhHh5vFCjKDbJfbDc2xoMF0VNSv7_MGRmlqQm_YQGo=" alt="Food 4">
+      <img src="https://media.istockphoto.com/id/1217125238/photo/cute-little-child-boy-playing-with-chicks-at-home-pretending-that-he-is-flying-in-the-sky.jpg?s=2048x2048&w=is&k=20&c=QgxBF4AaQ0bhyaKf-pmNzcNXGz826ONQ_5wVwXTLUsM=" alt="Food 5">
+      <img src="https://media.istockphoto.com/id/648684898/photo/cute-baby-girl-with-balloons.jpg?s=2048x2048&w=is&k=20&c=cEVOfH3SzSFpBZS4btbGHQWOd0CRFN1zwBFmu0itoXY=" alt="Food 6">
+      <img src="https://media.istockphoto.com/id/1395102832/photo/childrens-knitted-clothes-on-hanger-jacket-jumper-hat-shoes-toys-childrens-room-nursery.jpg?s=2048x2048&w=is&k=20&c=p-qQVts5kRhiOYPidbCaf23Et3WDjka8PFuwv9VPZ7U=" alt="Food 7">
+      <img src="https://media.istockphoto.com/id/1465159103/photo/interior-coat-rack-area-in-home.jpg?s=2048x2048&w=is&k=20&c=AQ9nF2uj76GO-RbiTCbjN2aBDIFGK71YpqWsqXSePVU=" alt="Food 8">
+      <img src="https://media.istockphoto.com/id/1470215034/photo/a-pregnant-woman-with-a-big-belly-holds-a-teddy-bear-and-strokes-her-stomach-the-expectant.jpg?s=2048x2048&w=is&k=20&c=J0gmXVzGH1SN6ahcxyNkXbHYcnb5-naaixAs0Z48LT4=" alt="Food 9">
+    </div>
+  </section>
+
+  <main class="about">
+    <div class="container">
+      <section class="grid info">
+        <div class="column-4">
+          <img
+            src="https://media.istockphoto.com/id/942744472/photo/production-of-threads-in-a-textile-factory.jpg?s=2048x2048&w=is&k=20&c=Nq-HbHbJoG-pcPn4OmzEgIcUc87VEoxJ9koUHuMSc1o="
+            alt="Jane Writer">
+        </div>
+        <div class="column-8">
+          <div class="intro">
+            <h2 class="header">Jane Writer is an award-winning author and lifestyle blogger.</h2>
+            <p>Crud indignant permissively through burped nodded timorous onto the as wore less ouch far rewound
+              considering so broken dachshund jeepers sanely confident. Contemplated growled apart enthusiastically
+              punitively much much darn onto deep dear returned some cockatoo hungrily fortuitously enchantingly ouch
+              sanely on unceremonious especially much yikes darn.</p>
+            <p>Gecko far one before ouch far indistinctly ouch much doubtfully the alas some classically far insincerely
+              much honey close savage ground according enthusiastic and that then about realistic however more forlornly
+              dear demonstrably a this.</p>
+            <p>Less urgently ape one some hamster much well that dolphin strode hey underneath so eagle ouch a hey
+              turtle notwithstanding truly censoriously congratulated dear one mandrill weak much then disconsolately
+              wholesome.</p>
+          </div>
+        </div>
+        <div class="column-4">
+          <img
+            src="https://media.istockphoto.com/id/1967612837/photo/african-textile-factory.jpg?s=2048x2048&w=is&k=20&c=kr0vMTPIbyapuYG21fHZ-UOOFyoHK19LS4bSDHxfbP4="
+            alt="Inspiration Image">
+        </div>
+        <div class="column-8">
+          <blockquote>
+            <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa provident voluptatem consectetur illum,
+              natus placeat incidunt tempora architecto aliquid recusandae eligendi repudiandae ex laborum neque quod
+              cum id facere nulla.</h3>
+          </blockquote>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <section class="grid">
+        <div class="column-xs-12">
+          <p class="copyright">&copy; Copyright 2018 Katherine Kato</p>
+        </div>
+      </section>
+    </div>
+  </footer>
+</body>
+
+</html>

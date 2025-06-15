@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update Clothe</h1>
+    <form action="update" method="post">
+        {%csrf_token%}
+        <input type="text" name="id" value="{{clothes.id}}"><br>
+        <input type="text" name="name" value="{{clothes.name}}"><br>
+        <!-- <input type="text" name="gender" value="{{clothes.gender}}"><br> -->
+        <input type="text" name="category" value="{{clothes.category}}"><br>
+        <input type="text" name="size" value="{{clothes.size}}"><br>
+        <input type="text" name="material" value="{{clothes.material}}"><br>
+        <input type="text" name="price" value="{{clothes.price}}"><br>
+        <input type="text" name="description" value="{{clothes.description}}"><br>
+        <input type="text" name="Clothe_image" value="{{clothes.Clothe_image}}"><br>
+        <input type="submit" value="Add Clothe">
+        <input type="reset" value="clear">
+    </form>
+</body>
+</html>

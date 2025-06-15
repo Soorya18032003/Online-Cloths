@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <main style="height: 100vh;">
+        <section class="header" style="background: transparent;">
+            <a href="{%url 'index' %}"><img src="{% static 'img/logonew.png' %}" alt="My image" style="height: 100px;" /></a>
+            <div>
+                <ul class="navbar">
+                    {% if request.session.username is None and request.session.adminEmailId is None%}
+                    <li><a class="main-nav-link" href="{%url 'index' %}">Home</a></li>
+                    <li><a class="main-nav-link" href="{%url 'about' %}">About</a></li>
+                    <li><a class="main-nav-link" href="{%url 'contact' %}">Contact</a></li>
+                    <li><a class="main-nav-link" href="{%url 'clothelist' %}">List</a></li>
+                    <li><a class="main-nav-link nav-cta" href="{%url 'Login' %}">Login</a></li>
+                    <!-- <li><a href="{% url 'cartList' %}">Cart</a></li> -->
+                    {% endif %}
+
+                    {% if request.session.username is not None and request.session.adminEmailId is None%}
+                    <li><a class="main-nav-link" href="{%url 'index' %}">Home</a></li>
+                    <li><a class="main-nav-link" href="{%url 'about' %}">About</a></li>
+                    <li><a class="main-nav-link" href="{%url 'contact' %}">Contact</a></li>
+                    <li><a class="main-nav-link" href="{%url 'clothelist' %}">Shop</a></li>
+                    <li><a class="main-nav-link nav-cta" href="{%url 'logout' %}">Logout</a></li>
+                    <li><a href="{% url 'cartList' %}">Cart</a></li>
+
+                    <!-- <a href="shop/addcart/cart/{{c.id}}" class="card__icon"><ion-icon name="cart-outline"></ion-icon></a> -->
+                    {% endif %}
+
+                    {% if request.session.username is None and request.session.adminEmailId is not None%}
+                    <li><a class="main-nav-link" href="{%url 'index' %}">Home</a></li>
+                    <!-- <li><a class="main-nav-link" href="{%url 'clothecreate' %}">Add Men's Cloths</a></li> -->
+                    <li><a class="main-nav-link" href="{%url 'clothecreatewomen' %}">Add Women's Cloths</a></li>
+                    <li><a class="main-nav-link" href="{%url 'clothelist' %}">Men's Cloths List</a></li>
+                    <li><a class="main-nav-link" href="{%url 'clothelistwomen' %}">Women's Cloths List</a></li>
+                    <li><a class="main-nav-link" href="{%url 'custlist' %}">Customer list</a></li>
+                    <li><a class="main-nav-link nav-cta" href="{%url 'logout' %}">Logout</a></li>
+                    {% endif %}
+                    <!-- <li><a class="active" href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li><a href="{% url 'about' %}"><i class="fa-regular fa-address-card"></i>About</a></li>
+                    <li><a href="{% url 'contact' %}"><i class="fa-solid fa-phone"></i>Contact</a></li>
+                    <li><a href="{% url 'clothelist' %}"><i class="fa-solid fa-store"></i>Store</a></li>
+                    <li><a href="{% url 'Login' %}"><i class="fa-solid fa-arrow-right-to-bracket"></i>Log.in</a></li>
+                    <li><a href="{% url 'cartList' %}"><i class="fa-solid fa-bag-shopping"></i>Cart</a></li> -->
+                </ul>
+            </div>
+        </section>
+</body>
+
+</html>

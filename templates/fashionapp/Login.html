@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Login Page</title>
+    <style>
+        body {
+            background-image: url("{% static 'img/cloth.jpg' %}");
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+    
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            animation: bounceIn 1.5s;
+            text-align: center;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            70% {
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #137590;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        select,
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            box-sizing: border-box;
+            font-size: 1em;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        select:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #ff7eb3;
+        }
+
+        input[type="submit"] {
+            background-color: #137590;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #137590;
+        }
+
+        .signup-button {
+            background-color: #28a745;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            padding: 10px;
+            border-radius: 25px;
+            width: calc(100% - 22px);
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-button:hover {
+            background-color: #218838;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="type">Select:</label>
+                <select name="type" id="type">
+                    <option value="" disabled selected>--- Select ---</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="email">Email ID:</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <input type="submit" value="Login" style="margin-bottom: 30px;">
+        </form>
+
+        <p class="signup-link" style="color: black;">Not a member?</p>
+
+        <form action="{% url 'custcreate' %}" method="get">
+            <input type="submit" value="Sign Up Now" class="signup-button">
+
+            <p class="signup-link1" style=" color: black;" ><a  href="{% url 'index' %}" style="text-decoration: none;">BACK TO HOME</a></p>
+        </form>
+        
+
+    </div>
+
+</body>
+
+</html>

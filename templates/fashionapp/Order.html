@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Place Order</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url("{% static 'img/background.jpg' %}");
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            animation: slideIn 1s ease;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .form-container img {
+            border-radius: 15px;
+            margin-top: 20px;
+            width: 100%;
+            height: auto;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .form-container form input[type="text"] {
+            width: calc(50% - 10px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-container form input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .form-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .form-container h3 {
+            margin-top: 20px;
+            font-style: italic;
+            color: #f9a825;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            .form-container h2 {
+                font-size: 20px;
+            }
+
+            .form-container form input[type="text"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'fashionapp/headernew.html'%}
+    <div class="form-container" style="margin-left: 550px;">
+        <h2>Place Your Order</h2>
+        <form action="placeorder" method="post">
+            {% csrf_token %}
+            <input type="text" name="emailId" value="{{request.session.username}}" placeholder="Email" readonly>
+            <input type="text" name="name" placeholder="Enter your name"><br>
+            <input type="text" name="address" placeholder="Enter your address"><br>
+            <input type="text" name="city" placeholder="Enter your city"><br>
+            <div style="display:flex;justify-content: space-between;">
+                <input type="text" name="state" placeholder="Enter your state" style="width: 48%;">
+                <input type="text" name="pincode" placeholder="Enter your pincode" style="width: 48%;">
+            </div>
+            <input type="text" name="phoneno" placeholder="Enter your phone number" style="width: 100%;"><br>
+            <input type="submit" value="Place Order">
+        </form>
+        <h3>Order Fast!</h3>
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/224e4b95494171.5e98963c04ffc.gif" alt="Order Now">
+    </div>
+</body>
+</html>

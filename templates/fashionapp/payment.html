@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <style>
+    /* Global styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #00a6ff, #02ff02);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      animation: slide-in 0.5s ease-out;
+    }
+
+    /* PayPal button container */
+    #smart-button-container {
+      margin-top: 30px;
+    }
+
+    /* PayPal button styling */
+    #paypal-button-container {
+      margin-top: 20px;
+    }
+
+    /* Payment details styling */
+    .payment-details {
+      margin-top: 20px;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    /* Button styling */
+    .button {
+      padding: 12px 24px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 16px;
+    }
+
+    .button:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* Animation for container */
+    @keyframes slide-in {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    var options = {
+       
+      // Enter the Key ID generated from the Dashboard
+      key: "rzp_test_pHL9VpV9uS7DJT", 
+      amount: 101, 
+      currency: "INR",
+      name: "Online Cloth", 
+       
+      // Pass the id obtained
+       
+      "handler": function(response) {
+console.log("success");
+console.log(response)
+alert(response.razorpay_payment_id)
+
+window.location.href = 'http//localhost:8000/paymentsuccess?order_id={{orderobj.ordernumbar}}&payment_id=${response.razorpay_payment_id}'
+      }
+    };
+     
+    // initialise razorpay with the options.
+    var rzp1 = new Razorpay(options);
+     
+    // add event listener to the payment button.
+    document.getElementById("pay-btn").onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    };
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Payment Details</h2>
+    <div class="payment-details">
+      <p>Total Amount: Rs{{ total }}</p>
+      <p>Order Number: {{ order.ordernumber }}</p>
+      <p>Email: {{ order.emailId }}</p>
+      <p>Name: {{ order.name }}</p>
+      <p>Address: {{ order.address }}</p>
+      <p>City: {{ order.city }}</p>
+      <p>State: {{ order.state }}</p>
+      <p>Pincode: {{ order.pincode }}</p>
+      <p>Phone Number: {{ order.phoneno }}</p>
+    </div>
+
+    <div id="smart-button-container">
+      <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+      </div>
+    <button onclick="initPayPalButton()" class="button">Pay using Razor Pay</button> 
+         <!--<button class="btn btn-danger" id="pay-btn">Pay using Razor Pay</button>-->
+
+    </div>
+  </div>
+</body>
+
+</html>

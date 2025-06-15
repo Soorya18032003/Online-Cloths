@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Cart</title>
+    {% load static %}
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://visme.co/blog/wp-content/uploads/2020/02/3-Fashion-Design-Animated-Presentation-Template-2.gif');
+            background-size: cover;
+            background-position: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            border-radius: 30px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="emailId" value="{{request.session.username}}" readonly><br>
+        <input type="text" name="pId" value="{{clothe.id}}" readonly><br>
+        <input type="text" name="name" value="{{clothe.name}}" readonly><br>
+        <input type="text" name="price" id="price" value="{{clothe.price}}" readonly><br>
+
+        <select name="quantity" id="quantity" onchange="calculateTotalPrice()">
+            {% for i in quant %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="text" name="totalPrice" id="totalPrice" placeholder="Total Price" readonly><br>
+        <input type="submit" value="Add to Cart">
+        <p class="signup-link" style="color: black; text-align: center;"><a href="{% url 'index' %}">BACK TO HOME</a></p>
+    </form>
+
+    <script>
+        function calculateTotalPrice() {
+            const price = parseFloat(document.getElementById('price').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const totalPrice = price * quantity;
+            document.getElementById('totalPrice').value = totalPrice.toFixed(2);  // Format to 2 decimal places
+        }
+    </script>
+</body>
+
+</html>

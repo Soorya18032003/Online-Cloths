@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+         .godofwar {
+        column-gap: 10px;
+        margin: auto 120px;
+      }
+
+      .popularheader {
+        padding: 2%;
+      }
+
+      .videoheader {
+        padding: 30px;
+        font-size: 20px;
+        font-weight: 600;
+        color: silver;
+      }
+
+      .videoparagraph {
+        padding: 30px;
+      }
+
+      .features {
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1%;
+        margin: auto 180px;
+      }
+
+      .feature1,
+      .feature2,
+      .feature3 {
+        background-color: rgb(255, 208, 216);
+        color: black;
+        padding: 50px;
+        border: 1px solid silver;
+        margin: 5px;
+        border-radius: 14px;
+        width: 500px;
+        height: 250px;
+        text-align: center;
+        font-size: 18px;
+        box-shadow: 3px 7px 14px black;
+      }
+
+      .featuresheader {
+        padding-top: 8%;
+        text-align: center;
+        font-size: 42px;
+        font-weight: 100px;
+      }
+
+      .featurespara {
+        text-align: justify;
+      }
+      
+
+    </style>
+</head>
+
+<body>
+    {% include 'fashionapp/headernew.html'%}
+    
+    <main style="height: 100vh;">
+        <!-- <section class="header" style="background: transparent;">
+            <a href=""><img src="{% static 'img/logonew.png' %}" alt="My image"
+                    style="height: 100px;" /></a>
+            <div>
+                <ul class="navbar" >
+                    <li><a class="active" href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li><a href="{% url 'about' %}"><i class="fa-regular fa-address-card"></i>About</a></li>
+                    <li><a href="{% url 'contact' %}"><i class="fa-solid fa-phone"></i>Contact</a></li>
+                    <li><a href="{% url 'clothelist' %}"><i class="fa-solid fa-store"></i>Store</a></li>
+                    <li><a href="{% url 'Login' %}"><i class="fa-solid fa-arrow-right-to-bracket"></i>Log.in</a></li>
+                    <li><a href="{% url 'cartList' %}"><i class="fa-solid fa-bag-shopping"></i>Cart</a></li>
+                </ul>
+            </div>
+        </section> -->
+        <ul class='slider' >
+            <li class='item'
+                style= "background-image: url('https://img.freepik.com/free-photo/magnificent-woman-long-bright-skirt-dancing-studio-carefree-inspired-female-model-posing-with-pleasure-yellow_197531-11084.jpg?t=st=1721200717~exp=1721204317~hmac=f3d0e93e75883c04c5b0066e3a66b2e57a336e95edf24bde683586b1cc36f432&w=1380') ">
+                <div class='content' >
+                    <h2 class='title' style="color: black; font-size: 30px;">"Unleash Your Inner Fashionista"</h2>
+                    <p class='description' style="color: black; "> Shop from the latest collection of Apparels for Men Online in India. Choose from wide range of mens fashion apparels by top brands on Fashion Pro </p>
+                    <button style="color: black; border-color: black;">Read More</button>
+                </div>
+            </li>
+            <li class='item'
+                style="background-image: url('https://img.freepik.com/free-photo/copy-space-teenage-boy_23-2148478770.jpg?t=st=1721205121~exp=1721208721~hmac=6975723fc124750fe99aa4d8543f9776adc3b9ead37d4e489b558fd7f143b056&w=1060')">
+                <div class='content'>
+                    <h2 class='title' style="color: black; font-size: 30px;">"Unleash Your Inner Fashionista"</h2>
+                    <p class='description' style="color: black; "> Shop from the latest collection of Apparels for Men Online in India. Choose from wide range of mens fashion apparels by top brands on Fashion Pro </p>
+                    <button style="color: black; border-color: black;">Read More</button>
+                </div>
+            </li>
+            <li class='item'
+                style="background-image: url('https://img.freepik.com/free-photo/small-talk-wooden-chest_329181-7511.jpg?t=st=1721201150~exp=1721204750~hmac=05f7d87afec477953f2243b6481a848e40c754dcecb5c66a027495519737830e&w=996')">
+                <div class='content'>
+                    <h2 class='title' style="color: black; font-size: 30px;">"Unleash Your Inner Fashionista"</h2>
+                    <p class='description' style="color: black; "> Shop from the latest collection of Apparels for Men Online in India. Choose from wide range of mens fashion apparels by top brands on Fashion Pro </p>
+                    <button style="color: black; border-color: black;">Read More</button>
+                </div>
+            </li>
+            <li class='item'
+                style="background-image: url('https://img.freepik.com/free-photo/young-trendy-woman-model-outside-street_1303-22127.jpg?t=st=1721200952~exp=1721204552~hmac=d6c308524c616f4ece2a4ca17648b6bdf87ba4bae46ba9f88521cec56052d996&w=996')">
+                <div class='content'>
+                    <h2 class='title' style="color: black; font-size: 30px;">"Unleash Your Inner Fashionista"</h2>
+                    <p class='description' style="color: black; "> Shop from the latest collection of Apparels for Men Online in India. Choose from wide range of mens fashion apparels by top brands on Fashion Pro </p>
+                    <button style="color: black; border-color: black;">Read More</button>
+                </div>
+            </li>
+            <!-- <li class='item'
+                style="background-image: url('https://media.istockphoto.com/id/1071832408/photo/woman-clothing-and-accessories-in-pastel-colors.jpg?s=2048x2048&w=is&k=20&c=iFNa4nYFEMTKFe0KxVVfSh5w_v_BX826I4haBma6_MQ=')">
+                <div class='content'>
+                    <h2 class='title'>"Urban Decay"</h2>
+                    <p class='description'>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis
+                        inventore praesentium nisi. Id laboriosam ipsam enim.
+                    </p>
+                    <button>Read More</button>
+                </div>
+            </li>
+            <li class='item'
+                style="background-image: url('https://media.istockphoto.com/id/636635312/photo/blank-stuff-on-white-background-template-for-design-presentations-branding.jpg?s=2048x2048&w=is&k=20&c=p24QqFVDObrkH4CKuqzotnjFlcdjcBzSy4rhoCpOjBI=')">
+                <div class='content'>
+                    <h2 class='title'>"The Migration"</h2>
+                    <p class='description'> Lorem ipsum, dolor sit amet consectetur
+                        adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+                        praesentium nisi. Id laboriosam ipsam enim. </p>
+                    <button>Read More</button>
+                </div>
+            </li> -->
+        </ul>
+        <nav class='nav'>
+            <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+            <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+        </nav>
+
+    
+    </main>
+
+    <section class="categories" style="margin-top: 40px; font-size: 25px; margin-bottom: 30px;" >
+        <div class="category-item" >
+            <img src="https://images.unsplash.com/photo-1574201635302-388dd92a4c3f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGZhc2hpb258ZW58MHx8MHx8fDA%3D"
+                alt="Trending Now">
+            <p>Trending Now</p>
+        </div>
+        <div class="category-item">
+            <img src="https://images.unsplash.com/photo-1632149877166-f75d49000351?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fGZhc2hpb258ZW58MHx8MHx8fDA%3D"
+                alt="Winter Essentials">
+            <p>Winter Essentials</p>
+        </div>
+        <div class="category-item">
+            <img src="https://images.unsplash.com/photo-1632573801508-4ede5a46c4d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fGZhc2hpb258ZW58MHx8MHx8fDA%3D"
+                alt="Customer Favorites">
+            <p>Customer Favorites</p>
+        </div>
+        <div class="category-item">
+            <img src="https://images.unsplash.com/photo-1527019116805-6830bec33ebc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjYwfHxmYXNoaW9ufGVufDB8fDB8fHww"
+                alt="Gift Ideas">
+            <p>Gift Ideas</p>
+        </div>
+    </section>
+
+    <section class="categories" style="margin-top: 40px; font-size: 25px; margin-bottom: 30px;">
+        <div class="category-item">
+            <img src="https://images.unsplash.com/photo-1626557981101-aae6f84aa6ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fG1lbnMlMjBmYXNoaW9ufGVufDB8fDB8fHww"
+                alt="Trending Now">
+            <p>Trending Now</p>
+        </div>
+        <div class="category-item">
+            <img src="https://images.unsplash.com/photo-1636590416426-2982bf402782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODQ2fHxtZW5zJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
+                alt="Winter Essentials">
+            <p>Winter Essentials</p>
+        </div>
+        <div class="category-item">
+            <img src="https://images.unsplash.com/photo-1624835567150-0c530a20d8cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMwfHxtZW5zJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
+                alt="Customer Favorites">
+            <p>Customer Favorites</p>
+        </div>
+        <div class="category-item">
+            <img src="https://images.unsplash.com/photo-1631395774172-3d42655a3dc3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTc1fHxtZW5zJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D"
+                alt="Gift Ideas">
+            <p>Gift Ideas</p>
+        </div>
+    </section>
+
+    <h2 class="featuresheader">Search New Cloths By Brand</h2>
+    <div class="features" >
+      
+      <div class="feature2"  style="height: 210px;  background-color: #fff;" >
+        <img
+          src="{% static 'img/allen Solly_large.jpeg' %}" style="width: 180px; " 
+          alt="Description of Image"
+        />
+        <br />
+     
+      </div>
+      <div class="feature3" style="height: 210px;  background-color: #fff;" style="width: 800px; ">
+        <img
+          src="{% static 'img/BIBA.jpg' %}" style="width: 190px; " 
+          alt="Description of Image"
+        />
+        <br />
+      </div>
+      <div class="feature3" style="height: 210px;  background-color: #fff;" style="width: 800px; ">
+        <img
+          src="{% static 'img/HM image.png' %}" style="width: 120px; " 
+          alt="Description of Image"
+        />
+        <br />
+      
+      </div>
+      <div class="feature3" style="height: 210px;  background-color: #fff;" style="width: 800px; ">
+        <img
+          src="{% static 'img/zara img.webp' %}" style="width: 190px;"
+          alt="Description of Image"
+        />
+        <br />
+      </div>
+    </div>
+  
+    <section class="blog">
+        <h2>From Our Blog</h2>
+        <div class="blog-item">
+            <img src="https://images.unsplash.com/photo-1517938889432-a2ac9241a486?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fHR1cnRsZW5lY2slMjBmYXNoaW9ufGVufDB8fDB8fHww"
+                alt="How to Style a Turtleneck 5 Ways">
+            <p>How to Style a Turtleneck 5 Ways</p>
+            <span>Fashion</span>
+        </div>
+        <div class="blog-item">
+            <img src="https://plus.unsplash.com/premium_photo-1661692855673-1bd38a71fee1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODV8fGN1c3RvbWVyJTIwY2xvdGglMjByZXZpZXd8ZW58MHx8MHx8fDA%3D"
+                alt="The Best Winter Boots of 2023">
+            <p>The Best Winter Cloth of 2024</p>
+            <span>Style</span>
+        </div>
+        <div class="blog-item">
+            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Q296aWVzdCUyMFN3ZWF0ZXJzfGVufDB8fDB8fHww"
+                alt="The Top 10 Coziest Sweaters, Ranked">
+            <p>The Top 10 Coziest Sweaters, Ranked</p>
+            <span>Shopping</span>
+        </div>
+    </section>
+
+    
+
+    <div class="godofwar">
+        <h3 class="popularheader">Popular Blog</h3>
+        <video
+          width="640"
+          height="360"
+          controls
+          autoplay
+          loop
+          style="border-radius: 14px; padding: 30px; float: left"
+        >
+          <source
+            src="{% static 'video/MANGO Committed _ Making FASHION more SUSTAINABLE.mp4' %}"
+            type="video/mp4"
+          />
+        </video>
+        <div class="data">
+          <h4 class="videoheader">Western Cloth Mini Blog</h4>
+          <p class="videoparagraph">
+            God of War Ragnarok presents a fantastic conclusion to the Norse saga,
+            pushing Kratos and Atreus to a level in storytelling matched by few.
+            Every character is impeccably written, having me in stitches one
+            minute and in tears the next. The Nine Realms are stunning to explore
+            with an exceptional level of detail, an abundance of different enemy
+            designs and significant side-missions that are frankly unavoidable.
+            Sony Santa Monica has quite possibly delivered the greatest one-two
+            punch in video game history.
+          </p>
+          <button style="border: 1px solid silver">See more</button>
+        </div>
+      </div>
+
+      
+
+    <section class="customer-reviews" style="margin-top: 10%;">
+        <h2>Customer Love</h2>
+        <div class="reviews-summary">
+            <div>
+                <h3>4.7</h3>
+                <p>Average Rating</p>
+            </div>
+            <div>
+                <h3>2000+</h3>
+                <p>5 Star Reviews</p>
+            </div>
+            <div>
+                <h3>4000+</h3>
+                <p>4 Star Reviews</p>
+            </div>
+            <div>
+                <h3>10000+</h3>
+                <p>Total Reviews</p>
+            </div>
+        </div>
+        <div class="reviews">
+            <div class="review-item">
+                <img src="https://plus.unsplash.com/premium_photo-1661369945698-2f5bb025f097?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y3VzdG9tZXIlMjBjbG90aCUyMHJldmlld3xlbnwwfHwwfHx8MA%3D%3D"
+                    alt="Customer Review">
+                <p>"I love this dress!"</p>
+                <span>- Sarah M.</span>
+            </div>
+            <div class="review-item">
+                <img src="https://plus.unsplash.com/premium_photo-1681486934742-81de6b20077e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjV8fGN1c3RvbWVyJTIwY2xvdGglMjByZXZpZXd8ZW58MHx8MHx8fDA%3D"
+                    alt="Customer Review">
+                <p>"So comfortable and cute!"</p>
+                <span> Mike L.</span>
+            </div>
+            <div class="review-item">
+                <img src="https://plus.unsplash.com/premium_photo-1664908239377-996e82c37b73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzN8fGN1c3RvbWVyJTIwY2xvdGglMjByZXZpZXd8ZW58MHx8MHx8fDA%3D"
+                    alt="Customer Review">
+                <p>"Great quality, true to size."</p>
+                <span>- Jen S.</span>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- <section class="products">
+        <h2>Our Products</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>Description of Product 1</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>Description of Product 2</p>
+                <button>Add to Cart</button>
+            </div>
+            <Add more product items as needed -->
+    <!-- </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 FashionPro. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>  -->
+
+    <script>
+        const slider = document.querySelector('.slider');
+
+        function activate(e) {
+            const items = document.querySelectorAll('.item');
+            e.target.matches('.next') && slider.append(items[0])
+            e.target.matches('.prev') && slider.prepend(items[items.length - 1]);
+        }
+
+        document.addEventListener('click', activate, false);
+
+    </script>
+    {% include 'fashionapp/Footer.html' %}
+
+    <!-- <section class="products">
+        <h2>Our Products</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>Description of Product 1</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>Description of Product 2</p>
+                <button>Add to Cart</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 FashionPro. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer> --> 
+    {% include 'fashionapp/Footer.html' %}
+</body>
+
+</html>
